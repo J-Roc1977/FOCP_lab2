@@ -1,49 +1,33 @@
 ﻿#include <iostream>
+#include <fstream>
+#include <string>
 
-int fibonacci_iterative(int index) {
-    int a = 0;
-    int b = 1;
+int main()
+{
+	std::ofstream file;
+	file.open("new_file.txt");
+	file << "First line!\n";
+	file << "Second line!\n";
+	file << "Third line!\n";
+	file << "Fourth line!\n";
+	file.close();
 
-    if (index < 2) {
-        return index;
-    }
+	std::ifstream new_file("new_file.txt");
 
-    for (int i = 1; i < index; i++) {
-        int tmp = a + b;
-        a = b;
-        b = tmp;
-    }
+	if (new_file.is_open())
+	{
+		std::string line;
+		while(getline(new_file, line))
+		{
+			std::cout << line;
+		}
 
-    return  b;
-}
+		new_file.close();
 
-int fibonacci_recursive(int index) {
-    if (index < 2) {
-        return index;
-    }
+	}
+	else {
+		std::cout << "There was a problem opening the file" << std::endl;
+	}
 
-    return fibonacci_recursive(index - 2) + fibonacci_recursive(index - 1);
-}
-
-int read_int() {
-    std::cout << "Please introduce a number:" << std::endl;
-
-    int n;
-    std::cin >> n;
-
-    return n;
-}
-
-int main() {
-    int index = read_int();
-
-    int result_iterative = fibonacci_iterative(index);
-
-    std::cout << "The result with iteration is: " << result_iterative << std::endl;
-
-    int result_recursive = fibonacci_recursive(index);
-
-    std::cout << "The result with recursion is: " << result_recursive << std::endl;
-
-    return 0;
+	return 0;
 }
