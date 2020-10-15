@@ -1,2 +1,3 @@
 ﻿  lab2.cpp
+C:\Users\barti\source\repos\FOCP_lab2\lab2\lab2\lab2.cpp(66,13): warning C4244: "inicjowanie": konwersja z "int" do "float", możliwa utrata danych
   lab2.vcxproj -> C:\Users\barti\source\repos\FOCP_lab2\lab2\Debug\lab2.exe
